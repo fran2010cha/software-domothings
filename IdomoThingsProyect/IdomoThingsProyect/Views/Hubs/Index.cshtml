@@ -1,0 +1,58 @@
+﻿@model IEnumerable<IdomoThingsProyect.Models.Hubs>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Nuevo Hub", "Create", null, new { @class = "btn btn-warning glyphicon glyphicon-hdd" })
+</p>
+<table id="HubTable" class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.HubsID)
+            </th>
+            <th>@Html.DisplayNameFor(model => model.Estado)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HubsID)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Estado)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.HubsID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.HubsID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.HubsID })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section scripts{
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/datatables")
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#HubTable').DataTable({
+                "paging": true,
+                "recordsFiltered": 2,
+                "lengthChange": false,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false
+            });
+        });
+    </script>
+}

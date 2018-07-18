@@ -1,0 +1,53 @@
+﻿@model IEnumerable<IdomoThingsProyect.Models.Accion>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.hubs.HubsID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.hubs.Estado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.usuario.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AccionHecha)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.hubs.HubsID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.hubs.Estado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.usuario.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AccionHecha)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.AccionID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.AccionID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.AccionID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,77 @@
+﻿@model IEnumerable<IdomoThingsProyect.Models.Accion>
+
+@{
+    ViewBag.Title = "index";
+}
+
+
+<h2>Index</h2>
+<p>
+    @Html.ActionLink("Nueva accion", "Create", null, new { @class = "btn btn-warning glyphicon glyphicon-hdd" })
+</p>
+<table id="accionTable" class="table">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.hubs.HubsID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.hubs.Estado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.usuario.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccionHecha)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.hubs.HubsID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.hubs.Estado)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.usuario.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AccionHecha)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.AccionID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.AccionID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.AccionID })
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+@section scripts{
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/datatables")
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#accionTable').DataTable({
+                "paging": true,
+                "recordsFiltered": 2,
+                "lengthChange": false,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false
+            });
+        });
+    </script>
+}
+
+

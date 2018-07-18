@@ -1,0 +1,42 @@
+﻿@model IdomoThingsProyect.Models.Accion
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Accion</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.hubs.Estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hubs.Estado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.usuario.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.usuario.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccionHecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccionHecha)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.AccionID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
